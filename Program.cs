@@ -88,13 +88,13 @@ namespace lab1
                     string tmpLocation = locations[i];
                     Console.Write("Enter mark if it will be rainy and you are in/at " + tmpLocation + ": ");
                     int rainy, sunny;
-                    if (!int.TryParse(Console.ReadLine(), out rainy) && rainy <= highest  && rainy >= lowest)
+                    if (!int.TryParse(Console.ReadLine(), out rainy) || !(rainy <= highest  && rainy >= lowest))
                     {
                         --i;  Console.WriteLine("Nah, it is not working here");
                         continue;
                     }
                     Console.Write("Enter mark if it will be sunny and you are in/at " + tmpLocation + ": ");
-                    if (!int.TryParse(Console.ReadLine(), out sunny) && sunny <= highest  && sunny >= lowest)
+                    if (!int.TryParse(Console.ReadLine(), out sunny) || !(sunny <= highest  && sunny >= lowest))
                     {
                         --i;  Console.WriteLine("Nah, it is not working here");
                         continue;
