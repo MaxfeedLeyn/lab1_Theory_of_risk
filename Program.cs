@@ -32,7 +32,7 @@ namespace lab1
                 ListOfMarks marks = new ListOfMarks();
                 for (int i = 0; i < 5; ++i)
                 {
-                    Console.WriteLine("Enter numeric mark number for {0}:", marks.List[i].Key);
+                    Console.Write("Enter numeric mark number for {0}: ", marks.List[i].Key);
                     int tmp;
                     if (int.TryParse(Console.ReadLine(), out tmp))
                     {
@@ -54,7 +54,7 @@ namespace lab1
                 float chanceOfRain;
                 while (true)
                 {
-                    Console.WriteLine("Enter chance of rain");
+                    Console.Write("Enter chance of rain: ");
                     if (float.TryParse(Console.ReadLine(), out chanceOfRain) && chanceOfRain <= 1 && chanceOfRain >= 0)
                     {
                         break;
@@ -69,8 +69,9 @@ namespace lab1
                 int[][] arrayOfMarks;
                 
                 Console.WriteLine("Enter locations of entertainment(locations have to be written using spaces):");
+                Console.Write("Locations: ");
                 string locationString = Console.ReadLine() ?? String.Empty;
-                string[] locations = locationString.Split(new[]  { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                string[] locations = locationString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(x => x.Trim()).ToArray();
                 
                 int countOfLocations = locations.Length;
@@ -85,14 +86,14 @@ namespace lab1
                 for (int i = 0; i < countOfLocations; ++i)
                 {
                     string tmpLocation = locations[i];
-                    Console.WriteLine("Enter mark if it will be rainy and you are in/at: " + tmpLocation);
+                    Console.Write("Enter mark if it will be rainy and you are in/at " + tmpLocation + ": ");
                     int rainy, sunny;
                     if (!int.TryParse(Console.ReadLine(), out rainy) && rainy <= highest  && rainy >= lowest)
                     {
                         --i;  Console.WriteLine("Nah, it is not working here");
                         continue;
                     }
-                    Console.WriteLine("Enter mark if it will be sunny and you are in/at: " + tmpLocation);
+                    Console.Write("Enter mark if it will be sunny and you are in/at " + tmpLocation + ": ");
                     if (!int.TryParse(Console.ReadLine(), out sunny) && sunny <= highest  && sunny >= lowest)
                     {
                         --i;  Console.WriteLine("Nah, it is not working here");
@@ -104,8 +105,9 @@ namespace lab1
                 int maxIndex = 0;
                 float maxValue =  usefulness[0];
                 
-                for (int i = 1; i < countOfLocations; ++i)
+                for (int i = 0; i < countOfLocations; ++i)
                 {
+                    Console.WriteLine("Location: {0}, usefulness: {1};", locations[i], usefulness[i]);
                     if (maxValue < usefulness[i])
                     {
                         maxValue = usefulness[i];
